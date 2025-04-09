@@ -27,16 +27,71 @@ font = pygame.font.SysFont("Arial", 24)
 # Paramètres du jeu
 clock = pygame.time.Clock()
 
-# Contrôles par défaut
-controls = {
-    'up': pygame.K_UP,
-    'down': pygame.K_DOWN,
-    'left': pygame.K_LEFT,
-    'right': pygame.K_RIGHT
-}
+def save_data(best_score: int, lang: str, control: str) -> None:
+    """
+    Prend en entrée le best score, la langue et le type de contrôle et les enregistre ligne par ligne dans un fichier data.txt.
+    """
+
+    try:
+        with open("data.txt", "w", encoding="utf-8") as file:
+            file.write(f"{base64.b64encode(str(best_score).encode()).decode()}\n")
+            file.write(f"{lang}\n")
+            file.write(f"{control}\n")
+    except Exception as e:
+        print(f"Erreur lors de la sauvegarde des données: {e}")
+
+def load_data() -> tuple:
+    """
+    Charge les données du fichier data.txt et retourne le meilleur score, la langue et le type de contrôle.
+    """
+    if not os.path.exists("data.txt"):
+        return 0, 'fr', 'arrow'
+
+    try:
+        with open("data.txt", "r", encoding="utf-8") as file:
+            lines = file.readlines()
+            if len(lines) >= 3:
+                best_score = int(base64.b64decode(lines[0].strip()).decode())
+                lang = lines[1].strip()
+                control = lines[2].strip()
+                return best_score, lang, control
+            else:
+                return 0, 'fr', 'arrow'
+    except Exception as e:
+        print(f"Erreur lors du chargement des données: {e}")
+        return 0, 'fr', 'arrow'
 
 # Langue actuelle (Français par défaut)
-current_language = 'fr'
+loaded_data = load_data()
+best_score, current_language, control = loaded_data
+current_language = current_language if current_language in ['fr', 'en'] else 'fr'
+
+# Contrôles par défaut (Flèches Directionnelles par défaut)
+if control == 'zqsd':
+    controls = {
+        'name': 'zqsd',
+        'up': pygame.K_z,
+        'down': pygame.K_s,
+        'left': pygame.K_q,
+        'right': pygame.K_d
+    }
+elif control == 'wasd':
+    controls = {
+        'name': 'wasd',
+        'up': pygame.K_w,
+        'down': pygame.K_s,
+        'left': pygame.K_a,
+        'right': pygame.K_d
+    }
+else: 
+    controls = {
+        'name': 'arrow',
+        'up': pygame.K_UP,
+        'down': pygame.K_DOWN,
+        'left': pygame.K_LEFT,
+        'right': pygame.K_RIGHT
+    }
+
 
 # Textes dans différentes langues
 texts = {
@@ -113,8 +168,6 @@ def check_collision(snake):
         return True
     return False
 
-
-
 # Dessiner la fenêtre du jeu
 def draw_game_window(snake, food, score, best_score):
     win.fill(BLACK)
@@ -135,37 +188,6 @@ def draw_game_window(snake, food, score, best_score):
     win.blit(credit_text, (WINDOW_SIZE // 2 - credit_text.get_width() // 2, WINDOW_SIZE - 30))
 
     pygame.display.update()
-
-# Enregistrer le meilleur score (crypté)
-def save_best_score(best_score):
-    encrypted_score = base64.b64encode(str(best_score).encode()).decode()
-    try:
-        with open("best_score.txt", "w") as f:
-            f.write(encrypted_score)
-    except Exception as e:
-        print(f"Erreur lors de la sauvegarde du meilleur score: {e}")
-
-
-
-# Fonction pour charger le meilleur score (décrypté)
-def load_best_score():
-    if not os.path.exists("best_score.txt"):
-        return 0  
-
-    try:
-        with open("best_score.txt", "r") as f:
-            encrypted_score = f.read().strip()
-            if len(encrypted_score) % 4 == 0:
-                try:
-                    decrypted_score = base64.b64decode(encrypted_score).decode()
-                    return int(decrypted_score)
-                except (base64.binascii.Error, ValueError):
-                    return 0
-            else:
-                return 0  
-    except Exception as e:
-        print(f"Erreur lors du chargement du meilleur score: {e}")
-        return 0  
 
 # Fonction qui enregistre les événements dans le log
 def log_event(message):
@@ -269,9 +291,13 @@ def language_menu():
 
                 if french_button.get_rect(topleft=(WINDOW_SIZE // 2 - french_button.get_width() // 2, 200)).collidepoint(mouse_x, mouse_y):
                     current_language = 'fr'
+                    log_event("Langue changée en Français")
+                    save_data(best_score, current_language, controls['name'])
                     return
                 if english_button.get_rect(topleft=(WINDOW_SIZE // 2 - english_button.get_width() // 2, 250)).collidepoint(mouse_x, mouse_y):
                     current_language = 'en'
+                    log_event("Langue changée en anglais")
+                    save_data(best_score, current_language, controls['name'])
                     return
                 if back_button.get_rect(topleft=(WINDOW_SIZE // 2 - back_button.get_width() // 2, 300)).collidepoint(mouse_x, mouse_y):
                     return
@@ -292,27 +318,36 @@ def controls_menu():
 
                 if arrow_controls_button.get_rect(topleft=(WINDOW_SIZE // 2 - arrow_controls_button.get_width() // 2, 200)).collidepoint(mouse_x, mouse_y):
                     controls = {
+                        'name': 'arrow',
                         'up': pygame.K_UP,
                         'down': pygame.K_DOWN,
                         'left': pygame.K_LEFT,
                         'right': pygame.K_RIGHT
                     }
+                    log_event("Contrôles changés en flèches directionnelles")
+                    save_data(best_score, current_language, controls['name'])
                     return
                 if zqsd_controls_button.get_rect(topleft=(WINDOW_SIZE // 2 - zqsd_controls_button.get_width() // 2, 250)).collidepoint(mouse_x, mouse_y):
                     controls = {
+                        'name': 'zqsd',
                         'up': pygame.K_z,
                         'down': pygame.K_s,
                         'left': pygame.K_q,
                         'right': pygame.K_d
                     }
+                    log_event("Contrôles changés en ZQSD")
+                    save_data(best_score, current_language, controls['name'])
                     return
                 if wasd_controls_button.get_rect(topleft=(WINDOW_SIZE // 2 - wasd_controls_button.get_width() // 2, 300)).collidepoint(mouse_x, mouse_y):
                     controls = {
+                        'name': 'wasd',
                         'up': pygame.K_w,
                         'down': pygame.K_s,
                         'left': pygame.K_a,
                         'right': pygame.K_d
                     }
+                    log_event("Contrôles changés en WASD")
+                    save_data(best_score, current_language, controls['name'])
                     return
                 if back_button.get_rect(topleft=(WINDOW_SIZE // 2 - back_button.get_width() // 2, 350)).collidepoint(mouse_x, mouse_y):
                     return
@@ -322,7 +357,7 @@ def game_loop():
     snake = [(300, 300), (280, 300), (260, 300)]
     food = [generate_food(snake, 0, 0)]
     score = 0
-    best_score = load_best_score()
+    global best_score, current_language, control
     direction = controls['right']
 
     while True:
@@ -357,7 +392,9 @@ def game_loop():
             log_event(f"Game Over! Score final: {score}")
             if score > best_score:
                 best_score = score
-                save_best_score(best_score)
+                #save_best_score(best_score)
+                save_data(best_score, current_language, controls['name'])
+            save_data(best_score, current_language, controls['name'])
             return  # Retourner au menu principal après la fin du jeu
 
         # Dessiner l'écran
@@ -376,3 +413,5 @@ def run_game():
             language_menu()
 
 run_game()
+pygame.quit()
+sys.exit()

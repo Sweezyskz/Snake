@@ -1,43 +1,23 @@
-[2025-04-09 20:18:46.923760] Ouverture du menu de choix des contrôles
-[2025-04-09 20:18:48.251604] Lancement de la partie
-[2025-04-09 20:18:54.643606] Le jeu a été fermé par l'utilisateur.
-[2025-04-09 20:20:16.675683] Lancement de la partie
-[2025-04-09 20:20:17.984590] Game Over! Score final: 0
-[2025-04-09 20:20:18.875540] Lancement de la partie
-[2025-04-09 20:20:20.178705] Game Over! Score final: 0
-[2025-04-09 20:20:20.675587] Ouverture du menu de choix des contrôles
-[2025-04-09 20:20:22.179685] Fermeture du jeu
-[2025-04-09 20:20:25.723633] Ouverture du menu de choix des contrôles
-[2025-04-09 20:20:27.363669] Lancement de la partie
-[2025-04-09 20:20:36.179538] Game Over! Score final: 3
-[2025-04-09 20:20:36.963562] Le jeu a été fermé par l'utilisateur.
-[2025-04-09 20:21:21.739647] Ouverture du menu de choix des contrôles
-[2025-04-09 20:21:23.155681] Lancement de la partie
-[2025-04-09 20:21:42.184580] Game Over! Score final: 6
-[2025-04-09 20:21:43.611681] Lancement de la partie
-[2025-04-09 20:21:48.721026] Game Over! Score final: 1
-[2025-04-09 20:21:49.899569] Fermeture du jeu
-[2025-04-09 20:26:45.483456] Ouverture du menu de choix des contrôles
-[2025-04-09 20:26:46.803478] Lancement de la partie
-[2025-04-09 20:26:54.720318] Game Over! Score final: 1
-[2025-04-09 20:26:55.643517] Fermeture du jeu
-[2025-04-09 20:26:58.979491] Lancement de la partie
-[2025-04-09 20:27:00.287263] Game Over! Score final: 0
-[2025-04-09 20:27:01.683398] Le jeu a été fermé par l'utilisateur.
-[2025-04-09 20:27:52.323429] Ouverture du menu de choix des contrôles
-[2025-04-09 20:27:56.739405] Lancement de la partie
-[2025-04-09 20:27:59.250362] Game Over! Score final: 0
-[2025-04-09 20:28:01.115586] Fermeture du jeu
-[2025-04-09 20:28:03.811441] Lancement de la partie
-[2025-04-09 20:28:05.118491] Game Over! Score final: 0
-[2025-04-09 20:28:05.763500] Lancement de la partie
-[2025-04-09 20:28:07.068307] Game Over! Score final: 0
-[2025-04-09 20:28:07.771389] Ouverture du menu de choix des contrôles
-[2025-04-09 20:28:09.163355] Lancement de la partie
-[2025-04-09 20:28:13.011435] Le jeu a été fermé par l'utilisateur.
-[2025-04-09 20:28:15.955510] Ouverture du menu de choix des contrôles
-[2025-04-09 20:28:17.795459] Ouverture du menu de sélection de la langue
-[2025-04-09 20:28:18.931364] Ouverture du menu de sélection de la langue
-[2025-04-09 20:28:20.771454] Fermeture du jeu
-[2025-04-09 20:28:24.051454] Fermeture du jeu
-[2025-04-09 20:28:48.723970] Le jeu a été fermé par l'utilisateur.
+[2025-04-09 21:16:04.658681] Ouverture du menu de choix des contrôles
+[2025-04-09 21:16:05.346687] Contrôles changés en WASD
+[2025-04-09 21:16:05.810697] Lancement de la partie
+[2025-04-09 21:16:07.716733] Game Over! Score final: 0
+[2025-04-09 21:16:08.602738] Lancement de la partie
+[2025-04-09 21:16:10.114635] Le jeu a été fermé par l'utilisateur.
+[2025-04-09 21:16:12.442823] Lancement de la partie
+[2025-04-09 21:16:13.748816] Game Over! Score final: 0
+[2025-04-09 21:16:14.522678] Fermeture du jeu
+[2025-04-09 21:24:21.810633] Ouverture du menu de choix des contrôles
+[2025-04-09 21:24:22.442602] Contrôles changés en WASD
+[2025-04-09 21:24:22.882547] Lancement de la partie
+[2025-04-09 21:24:26.388902] Game Over! Score final: 1
+[2025-04-09 21:24:27.010552] Fermeture du jeu
+[2025-04-09 21:24:29.226630] Lancement de la partie
+[2025-04-09 21:24:33.443209] Game Over! Score final: 2
+[2025-04-09 21:24:33.898488] Le jeu a été fermé par l'utilisateur.
+[2025-04-09 21:24:36.282584] Lancement de la partie
+[2025-04-09 21:24:38.378487] Le jeu a été fermé par l'utilisateur.
+[2025-04-09 21:24:40.554594] Ouverture du menu de sélection de la langue
+[2025-04-09 21:24:41.042603] Langue changée en anglais
+[2025-04-09 21:24:42.050627] Fermeture du jeu
+[2025-04-09 21:24:47.418564] Fermeture du jeu
