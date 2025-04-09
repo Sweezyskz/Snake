@@ -2,6 +2,7 @@ import pygame
 import random
 import sys
 from cryptography.fernet import Fernet
+from datetime import datetime  # Importer datetime pour obtenir la date et l'heure
 
 pygame.init()
 
@@ -50,9 +51,19 @@ def load_best_score_encrypted():
     except FileNotFoundError:
         return 0  # Retourner 0 si le fichier n'existe pas encore
 
+# Fonction pour loguer les événements avec date et heure
+def log_event(event_message):
+    # Récupérer la date et l'heure actuelle
+    now = datetime.now()
+    # Formater la date et l'heure avec précision (jour, mois, année, heure, minute, seconde, milliseconde)
+    timestamp = now.strftime("%Y-%m-%d %H:%M:%S.%f")  # Exemple: 2025-04-09 14:25:30.123456
+    # Créer le message avec le timestamp
+    log_message = f"[{timestamp}] {event_message}"
+    with open("log.txt", "a", encoding="utf-8") as log_file:
+        log_file.write(log_message + "\n")
+
 # Fonction pour dessiner le serpent
 def draw_snake(snake, score):
-    # Définir la couleur du serpent en fonction du score
     if score >= 25:
         snake_color = (255, 0, 0)  # Rouge pour le mode Rambo
     elif score >= 10:
@@ -119,10 +130,13 @@ def select_controls():
                 sys.exit()
         keys = pygame.key.get_pressed()
         if keys[pygame.K_1]:
+            log_event("Le joueur a choisi les flèches directionnelles comme contrôles.")
             return controls_presets["arrows"]
         elif keys[pygame.K_2]:
+            log_event("Le joueur a choisi ZQSD comme contrôles.")
             return controls_presets["zqsd"]
         elif keys[pygame.K_3]:
+            log_event("Le joueur a choisi WASD comme contrôles.")
             return controls_presets["wasd"]
 
 # Fonction pour générer la nourriture
@@ -133,13 +147,6 @@ def spawn_foods(snake, count):
             random.randint(0, WINDOW_SIZE // SQUARE_SIZE - 1) * SQUARE_SIZE,
             random.randint(0, WINDOW_SIZE // SQUARE_SIZE - 1) * SQUARE_SIZE
         ]
-        
-        while (pos[1] < 60) or (pos[1] > WINDOW_SIZE - 30):
-            pos = [
-                random.randint(0, WINDOW_SIZE // SQUARE_SIZE - 1) * SQUARE_SIZE,
-                random.randint(0, WINDOW_SIZE // SQUARE_SIZE - 1) * SQUARE_SIZE
-            ]
-        
         if pos not in snake and pos not in foods:
             foods.append(pos)
     return foods
@@ -167,6 +174,7 @@ def run_game(controls):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 save_best_score_encrypted(best_score)  # Sauvegarder le score chiffré
+                log_event(f"Le joueur a quitté le jeu. Score final: {score}")
                 pygame.quit()
                 sys.exit()
             if event.type == pygame.KEYDOWN:
@@ -183,6 +191,7 @@ def run_game(controls):
         new_head = [snake[0][0] + direction[0], snake[0][1] + direction[1]]
 
         if new_head in snake or not (0 <= new_head[0] < WINDOW_SIZE) or not (0 <= new_head[1] < WINDOW_SIZE):
+            log_event(f"Game Over - Le joueur a perdu. Raison: {'Mangé sa queue' if new_head in snake else 'Pris un mur'}. Score: {score}")
             break
 
         snake.insert(0, new_head)
@@ -192,6 +201,7 @@ def run_game(controls):
             foods += spawn_foods(snake, 1)  # Ajouter un bloc de nourriture supplémentaire
             if len(foods) > 3:
                 foods = foods[:3]  # Si on a plus de 3, on garde que les 3 premiers
+            log_event(f"Le joueur a pris de la nourriture. Score: {score}")
 
         else:
             snake.pop()
@@ -213,14 +223,17 @@ def run_game(controls):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 save_best_score_encrypted(best_score)
+                log_event(f"Le joueur a quitté après Game Over. Score final: {score}")
                 pygame.quit()
                 sys.exit()
         keys = pygame.key.get_pressed()
         if keys[pygame.K_r]:
+            log_event(f"Le joueur a recommencé le jeu avec un score de {score}.")
             run_game(controls)
             return
         elif keys[pygame.K_q]:
             save_best_score_encrypted(best_score)
+            log_event(f"Le joueur a quitté le jeu après Game Over. Score final: {score}")
             pygame.quit()
             sys.exit()
 

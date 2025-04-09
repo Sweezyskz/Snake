@@ -1,0 +1,21 @@
+Le joueur a choisi WASD comme contrôles.
+Le joueur a pris de la nourriture. Score: 1
+Le joueur a pris de la nourriture. Score: 2
+Le joueur a pris de la nourriture. Score: 3
+Le joueur a pris de la nourriture. Score: 4
+Le joueur a pris de la nourriture. Score: 5
+Game Over - Le joueur a perdu. Raison: Pris un mur. Score: 5
+Le joueur a recommencé le jeu avec un score de 5.
+Le joueur a pris de la nourriture. Score: 1
+Le joueur a pris de la nourriture. Score: 2
+Le joueur a pris de la nourriture. Score: 3
+Le joueur a pris de la nourriture. Score: 4
+Le joueur a pris de la nourriture. Score: 5
+Le joueur a pris de la nourriture. Score: 6
+Le joueur a pris de la nourriture. Score: 7
+Game Over - Le joueur a perdu. Raison: Mangé sa queue. Score: 7
+Le joueur a quitté le jeu après Game Over. Score final: 7
+[2025-04-09 18:14:51.110485] Le joueur a choisi WASD comme contrÃ´les.
+[2025-04-09 18:14:54.436680] Le joueur a pris de la nourriture. Score: 1
+[2025-04-09 18:14:56.096267] Game Over - Le joueur a perdu. Raison: Pris un mur. Score: 1
+[2025-04-09 18:14:57.049733] Le joueur a quittÃ© le jeu aprÃ¨s Game Over. Score final: 1
