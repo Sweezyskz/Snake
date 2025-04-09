@@ -1,80 +1,43 @@
-Le joueur a choisi WASD comme contrÙles.
-Le joueur a pris de la nourriture. Score: 1
-Le joueur a pris de la nourriture. Score: 2
-Le joueur a pris de la nourriture. Score: 3
-Le joueur a pris de la nourriture. Score: 4
-Le joueur a pris de la nourriture. Score: 5
-Game Over - Le joueur a perdu. Raison: Pris un mur. Score: 5
-Le joueur a recommencÈ le jeu avec un score de 5.
-Le joueur a pris de la nourriture. Score: 1
-Le joueur a pris de la nourriture. Score: 2
-Le joueur a pris de la nourriture. Score: 3
-Le joueur a pris de la nourriture. Score: 4
-Le joueur a pris de la nourriture. Score: 5
-Le joueur a pris de la nourriture. Score: 6
-Le joueur a pris de la nourriture. Score: 7
-Game Over - Le joueur a perdu. Raison: MangÈ sa queue. Score: 7
-Le joueur a quittÈ le jeu aprËs Game Over. Score final: 7
-[2025-04-09 18:14:51.110485] Le joueur a choisi WASD comme contr√¥les.
-[2025-04-09 18:14:54.436680] Le joueur a pris de la nourriture. Score: 1
-[2025-04-09 18:14:56.096267] Game Over - Le joueur a perdu. Raison: Pris un mur. Score: 1
-[2025-04-09 18:14:57.049733] Le joueur a quitt√© le jeu apr√®s Game Over. Score final: 1
-[2025-04-09 18:19:22.326470] Le joueur a lanc√© la partie.
-[2025-04-09 18:19:23.634451] Game Over! Collision: mur
-[2025-04-09 18:23:07.773735] The player has chosen English.
-[2025-04-09 18:23:09.109776] Le joueur a choisi la langue fran√ßaise.
-[2025-04-09 18:23:10.861897] Le joueur a choisi WASD comme contr√¥les.
-[2025-04-09 18:23:13.549622] Le joueur a choisi les fl√®ches directionnelles comme contr√¥les.
-[2025-04-09 18:23:15.061697] Le joueur a lanc√© la partie.
-[2025-04-09 18:23:16.970063] Score: 1
-[2025-04-09 18:23:19.172491] Score: 2
-[2025-04-09 18:23:21.879379] Game Over! Collision: mur
-[2025-04-09 18:23:25.445421] Le joueur a choisi WASD comme contr√¥les.
-[2025-04-09 18:23:27.133728] Le joueur a lanc√© la partie.
-[2025-04-09 18:24:46.486192] Le joueur a lanc√© la partie.
-[2025-04-09 18:24:47.791510] Game Over! Collision: mur
-[2025-04-09 18:24:50.149633] Le joueur a choisi WASD comme contr√¥les.
-[2025-04-09 18:24:51.749640] Le joueur a choisi la langue fran√ßaise.
-[2025-04-09 18:24:52.557344] Le joueur a lanc√© la partie.
-[2025-04-09 18:25:01.829718] Le joueur a lanc√© la partie.
-[2025-04-09 18:25:03.138617] Game Over! Collision: mur
-[2025-04-09 18:25:06.837608] Le joueur a choisi WASD comme contr√¥les.
-[2025-04-09 18:25:07.685922] Le joueur a lanc√© la partie.
-[2025-04-09 18:27:07.553468] Game Over! Collision: Touched Wall
-[2025-04-09 18:27:11.240201] Game Over! Collision: Touched Wall
-[2025-04-09 18:28:01.925386] Game Over! Collision: Touched Wall
-[2025-04-09 18:34:09.141336] Ouverture du menu de choix des contrÙles
-[2025-04-09 18:34:09.949267] Changement des contrÙles en WASD
-[2025-04-09 18:36:10.445284] Ouverture du menu de choix des contrÙles
-[2025-04-09 18:36:11.413301] ContrÙles choisis : WASD
-[2025-04-09 18:36:12.101146] Lancement de la partie
-[2025-04-09 18:36:12.103541] Jeu dÈmarrÈ
-[2025-04-09 18:36:15.915089] Score augmentÈ: 1
-[2025-04-09 18:36:21.020755] Score augmentÈ: 2
-[2025-04-09 18:36:26.728601] Score augmentÈ: 3
-[2025-04-09 18:36:29.536338] Score augmentÈ: 4
-[2025-04-09 18:36:29.635523] Game Over - Collision avec un mur ou la queue
-[2025-04-09 18:39:16.925116] Ouverture du menu de choix des contrÙles
-[2025-04-09 18:39:18.157226] ContrÙles choisis : WASD
-[2025-04-09 18:39:18.957056] Lancement de la partie
-[2025-04-09 18:39:18.959502] Jeu dÈmarrÈ
-[2025-04-09 18:39:22.066517] Score augmentÈ: 1
-[2025-04-09 18:39:23.669381] Score augmentÈ: 2
-[2025-04-09 18:39:24.668974] Game Over - Collision avec un mur ou la queue
-[2025-04-09 18:39:35.821225] Fermeture du jeu
-[2025-04-09 18:40:13.389104] Ouverture du menu de choix des contrÙles
-[2025-04-09 18:40:14.541254] ContrÙles choisis : WASD
-[2025-04-09 18:40:15.773074] Ouverture du menu de choix des contrÙles
-[2025-04-09 18:40:21.373092] Ouverture du menu de choix des contrÙles
-[2025-04-09 18:40:22.581125] ContrÙles choisis : WASD
-[2025-04-09 18:40:23.493060] Lancement de la partie
-[2025-04-09 18:40:23.495761] Jeu dÈmarrÈ
-[2025-04-09 18:40:26.501316] Score augmentÈ: 1
-[2025-04-09 18:40:34.109501] Score augmentÈ: 2
-[2025-04-09 18:40:42.318469] Score augmentÈ: 3
-[2025-04-09 18:40:45.118549] Score augmentÈ: 4
-[2025-04-09 18:40:48.320949] Score augmentÈ: 5
-[2025-04-09 18:40:49.720636] Score augmentÈ: 6
-[2025-04-09 18:40:50.722687] Game Over - Collision avec un mur ou la queue
-[2025-04-09 18:40:52.085046] Fermeture du jeu
-[2025-04-09 18:42:01.685032] Fermeture du jeu
+[2025-04-09 20:18:46.923760] Ouverture du menu de choix des contr√¥les
+[2025-04-09 20:18:48.251604] Lancement de la partie
+[2025-04-09 20:18:54.643606] Le jeu a √©t√© ferm√© par l'utilisateur.
+[2025-04-09 20:20:16.675683] Lancement de la partie
+[2025-04-09 20:20:17.984590] Game Over! Score final: 0
+[2025-04-09 20:20:18.875540] Lancement de la partie
+[2025-04-09 20:20:20.178705] Game Over! Score final: 0
+[2025-04-09 20:20:20.675587] Ouverture du menu de choix des contr√¥les
+[2025-04-09 20:20:22.179685] Fermeture du jeu
+[2025-04-09 20:20:25.723633] Ouverture du menu de choix des contr√¥les
+[2025-04-09 20:20:27.363669] Lancement de la partie
+[2025-04-09 20:20:36.179538] Game Over! Score final: 3
+[2025-04-09 20:20:36.963562] Le jeu a √©t√© ferm√© par l'utilisateur.
+[2025-04-09 20:21:21.739647] Ouverture du menu de choix des contr√¥les
+[2025-04-09 20:21:23.155681] Lancement de la partie
+[2025-04-09 20:21:42.184580] Game Over! Score final: 6
+[2025-04-09 20:21:43.611681] Lancement de la partie
+[2025-04-09 20:21:48.721026] Game Over! Score final: 1
+[2025-04-09 20:21:49.899569] Fermeture du jeu
+[2025-04-09 20:26:45.483456] Ouverture du menu de choix des contr√¥les
+[2025-04-09 20:26:46.803478] Lancement de la partie
+[2025-04-09 20:26:54.720318] Game Over! Score final: 1
+[2025-04-09 20:26:55.643517] Fermeture du jeu
+[2025-04-09 20:26:58.979491] Lancement de la partie
+[2025-04-09 20:27:00.287263] Game Over! Score final: 0
+[2025-04-09 20:27:01.683398] Le jeu a √©t√© ferm√© par l'utilisateur.
+[2025-04-09 20:27:52.323429] Ouverture du menu de choix des contr√¥les
+[2025-04-09 20:27:56.739405] Lancement de la partie
+[2025-04-09 20:27:59.250362] Game Over! Score final: 0
+[2025-04-09 20:28:01.115586] Fermeture du jeu
+[2025-04-09 20:28:03.811441] Lancement de la partie
+[2025-04-09 20:28:05.118491] Game Over! Score final: 0
+[2025-04-09 20:28:05.763500] Lancement de la partie
+[2025-04-09 20:28:07.068307] Game Over! Score final: 0
+[2025-04-09 20:28:07.771389] Ouverture du menu de choix des contr√¥les
+[2025-04-09 20:28:09.163355] Lancement de la partie
+[2025-04-09 20:28:13.011435] Le jeu a √©t√© ferm√© par l'utilisateur.
+[2025-04-09 20:28:15.955510] Ouverture du menu de choix des contr√¥les
+[2025-04-09 20:28:17.795459] Ouverture du menu de s√©lection de la langue
+[2025-04-09 20:28:18.931364] Ouverture du menu de s√©lection de la langue
+[2025-04-09 20:28:20.771454] Fermeture du jeu
+[2025-04-09 20:28:24.051454] Fermeture du jeu
+[2025-04-09 20:28:48.723970] Le jeu a √©t√© ferm√© par l'utilisateur.
