@@ -88,10 +88,19 @@ def select_controls():
 def spawn_foods(snake, count):
     foods = []
     while len(foods) < count:
+        # Générer des positions possibles en excluant les zones de score et de crédit
         pos = [
             random.randint(0, WINDOW_SIZE // SQUARE_SIZE - 1) * SQUARE_SIZE,
             random.randint(0, WINDOW_SIZE // SQUARE_SIZE - 1) * SQUARE_SIZE
         ]
+        
+        # Empêcher les positions dans les zones de score et de crédits
+        while (pos[1] < 60) or (pos[1] > WINDOW_SIZE - 30):
+            pos = [
+                random.randint(0, WINDOW_SIZE // SQUARE_SIZE - 1) * SQUARE_SIZE,
+                random.randint(0, WINDOW_SIZE // SQUARE_SIZE - 1) * SQUARE_SIZE
+            ]
+        
         if pos not in snake and pos not in foods:
             foods.append(pos)
     return foods
