@@ -22,13 +22,34 @@ controls_presets = {
     "wasd": {"up": pygame.K_w, "down": pygame.K_s, "left": pygame.K_a, "right": pygame.K_d}
 }
 
-# Variable pour le meilleur score
-best_score = 0
+# Fonction pour charger le meilleur score
+def load_best_score():
+    try:
+        with open("best_score.txt", "r") as f:
+            return int(f.read())
+    except FileNotFoundError:
+        return 0
 
-def draw_snake(snake):
+# Fonction pour sauvegarder le meilleur score
+def save_best_score(score):
+    with open("best_score.txt", "w") as f:
+        f.write(str(score))
+
+# Variable pour le meilleur score
+best_score = load_best_score()
+
+def draw_snake(snake, score):
+    # Définir la couleur du serpent en fonction du score
+    if score >= 25:
+        snake_color = (255, 0, 0)  # Rouge pour le mode Rambo
+    elif score >= 10:
+        snake_color = (0, 0, 255)  # Bleu pour score >= 10
+    else:
+        snake_color = (0, 255, 0)  # Vert par défaut
+
     for segment in snake:
         pygame.draw.rect(
-            win, (0, 255, 0),
+            win, snake_color,
             (segment[0] + SPACING, segment[1] + SPACING,
              SQUARE_SIZE - SPACING * 2, SQUARE_SIZE - SPACING * 2)
         )
@@ -125,6 +146,7 @@ def run_game(controls):
         clock.tick(speed)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                save_best_score(best_score)  # Sauvegarder le meilleur score avant de quitter
                 pygame.quit()
                 sys.exit()
             if event.type == pygame.KEYDOWN:
@@ -160,7 +182,7 @@ def run_game(controls):
             best_score = score
 
         win.fill((0, 0, 0))
-        draw_snake(snake)
+        draw_snake(snake, score)
         draw_food(foods)
         draw_score(score)
         draw_best_score()  # Affiche le meilleur score en dessous du score actuel
@@ -171,6 +193,7 @@ def run_game(controls):
         draw_game_over_menu(score)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                save_best_score(best_score)  # Sauvegarder avant de quitter
                 pygame.quit()
                 sys.exit()
         keys = pygame.key.get_pressed()
@@ -178,6 +201,7 @@ def run_game(controls):
             run_game(controls)
             return
         elif keys[pygame.K_q]:
+            save_best_score(best_score)  # Sauvegarder avant de quitter
             pygame.quit()
             sys.exit()
 
