@@ -19,3 +19,62 @@ Le joueur a quitté le jeu après Game Over. Score final: 7
 [2025-04-09 18:14:54.436680] Le joueur a pris de la nourriture. Score: 1
 [2025-04-09 18:14:56.096267] Game Over - Le joueur a perdu. Raison: Pris un mur. Score: 1
 [2025-04-09 18:14:57.049733] Le joueur a quittÃ© le jeu aprÃ¨s Game Over. Score final: 1
+[2025-04-09 18:19:22.326470] Le joueur a lancÃ© la partie.
+[2025-04-09 18:19:23.634451] Game Over! Collision: mur
+[2025-04-09 18:23:07.773735] The player has chosen English.
+[2025-04-09 18:23:09.109776] Le joueur a choisi la langue franÃ§aise.
+[2025-04-09 18:23:10.861897] Le joueur a choisi WASD comme contrÃ´les.
+[2025-04-09 18:23:13.549622] Le joueur a choisi les flÃ¨ches directionnelles comme contrÃ´les.
+[2025-04-09 18:23:15.061697] Le joueur a lancÃ© la partie.
+[2025-04-09 18:23:16.970063] Score: 1
+[2025-04-09 18:23:19.172491] Score: 2
+[2025-04-09 18:23:21.879379] Game Over! Collision: mur
+[2025-04-09 18:23:25.445421] Le joueur a choisi WASD comme contrÃ´les.
+[2025-04-09 18:23:27.133728] Le joueur a lancÃ© la partie.
+[2025-04-09 18:24:46.486192] Le joueur a lancÃ© la partie.
+[2025-04-09 18:24:47.791510] Game Over! Collision: mur
+[2025-04-09 18:24:50.149633] Le joueur a choisi WASD comme contrÃ´les.
+[2025-04-09 18:24:51.749640] Le joueur a choisi la langue franÃ§aise.
+[2025-04-09 18:24:52.557344] Le joueur a lancÃ© la partie.
+[2025-04-09 18:25:01.829718] Le joueur a lancÃ© la partie.
+[2025-04-09 18:25:03.138617] Game Over! Collision: mur
+[2025-04-09 18:25:06.837608] Le joueur a choisi WASD comme contrÃ´les.
+[2025-04-09 18:25:07.685922] Le joueur a lancÃ© la partie.
+[2025-04-09 18:27:07.553468] Game Over! Collision: Touched Wall
+[2025-04-09 18:27:11.240201] Game Over! Collision: Touched Wall
+[2025-04-09 18:28:01.925386] Game Over! Collision: Touched Wall
+[2025-04-09 18:34:09.141336] Ouverture du menu de choix des contrôles
+[2025-04-09 18:34:09.949267] Changement des contrôles en WASD
+[2025-04-09 18:36:10.445284] Ouverture du menu de choix des contrôles
+[2025-04-09 18:36:11.413301] Contrôles choisis : WASD
+[2025-04-09 18:36:12.101146] Lancement de la partie
+[2025-04-09 18:36:12.103541] Jeu démarré
+[2025-04-09 18:36:15.915089] Score augmenté: 1
+[2025-04-09 18:36:21.020755] Score augmenté: 2
+[2025-04-09 18:36:26.728601] Score augmenté: 3
+[2025-04-09 18:36:29.536338] Score augmenté: 4
+[2025-04-09 18:36:29.635523] Game Over - Collision avec un mur ou la queue
+[2025-04-09 18:39:16.925116] Ouverture du menu de choix des contrôles
+[2025-04-09 18:39:18.157226] Contrôles choisis : WASD
+[2025-04-09 18:39:18.957056] Lancement de la partie
+[2025-04-09 18:39:18.959502] Jeu démarré
+[2025-04-09 18:39:22.066517] Score augmenté: 1
+[2025-04-09 18:39:23.669381] Score augmenté: 2
+[2025-04-09 18:39:24.668974] Game Over - Collision avec un mur ou la queue
+[2025-04-09 18:39:35.821225] Fermeture du jeu
+[2025-04-09 18:40:13.389104] Ouverture du menu de choix des contrôles
+[2025-04-09 18:40:14.541254] Contrôles choisis : WASD
+[2025-04-09 18:40:15.773074] Ouverture du menu de choix des contrôles
+[2025-04-09 18:40:21.373092] Ouverture du menu de choix des contrôles
+[2025-04-09 18:40:22.581125] Contrôles choisis : WASD
+[2025-04-09 18:40:23.493060] Lancement de la partie
+[2025-04-09 18:40:23.495761] Jeu démarré
+[2025-04-09 18:40:26.501316] Score augmenté: 1
+[2025-04-09 18:40:34.109501] Score augmenté: 2
+[2025-04-09 18:40:42.318469] Score augmenté: 3
+[2025-04-09 18:40:45.118549] Score augmenté: 4
+[2025-04-09 18:40:48.320949] Score augmenté: 5
+[2025-04-09 18:40:49.720636] Score augmenté: 6
+[2025-04-09 18:40:50.722687] Game Over - Collision avec un mur ou la queue
+[2025-04-09 18:40:52.085046] Fermeture du jeu
+[2025-04-09 18:42:01.685032] Fermeture du jeu
