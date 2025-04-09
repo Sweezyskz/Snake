@@ -96,6 +96,10 @@ def spawn_foods(snake, count):
             foods.append(pos)
     return foods
 
+def draw_credits():
+    credit_text = font.render("Speed Group © 2025", True, (200, 200, 200))
+    win.blit(credit_text, ((WINDOW_SIZE - credit_text.get_width()) // 2, WINDOW_SIZE - 30))  # En bas, centré
+
 def run_game(controls):
     global best_score
     speed = 6  # Vitesse réduite ici
@@ -151,6 +155,7 @@ def run_game(controls):
         draw_food(foods)
         draw_score(score)
         draw_best_score()  # Affiche le meilleur score en dessous du score actuel
+        draw_credits()  # Affiche les crédits en bas de la fenêtre
         pygame.display.update()
 
     while True:
