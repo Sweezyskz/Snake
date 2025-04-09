@@ -1,6 +1,7 @@
 import pygame
 import random
 import sys
+from cryptography.fernet import Fernet
 
 pygame.init()
 
@@ -22,22 +23,34 @@ controls_presets = {
     "wasd": {"up": pygame.K_w, "down": pygame.K_s, "left": pygame.K_a, "right": pygame.K_d}
 }
 
-# Fonction pour charger le meilleur score
-def load_best_score():
+# Fonction pour générer une clé de chiffrement
+def generate_key():
+    return Fernet.generate_key()
+
+# Fonction pour sauvegarder le score chiffré dans le fichier
+def save_best_score_encrypted(score):
+    key = generate_key()  # Générer une nouvelle clé
+    cipher_suite = Fernet(key)
+    encrypted_score = cipher_suite.encrypt(str(score).encode())  # Crypter le score
+    with open("best_score.enc", "wb") as f:
+        f.write(encrypted_score)  # Sauvegarder le score chiffré
+    with open("key.key", "wb") as f:
+        f.write(key)  # Sauvegarder la clé de chiffrement (a ne pas perdre)
+
+# Fonction pour charger le meilleur score à partir du fichier chiffré
+def load_best_score_encrypted():
     try:
-        with open("best_score.txt", "r") as f:
-            return int(f.read())
+        with open("best_score.enc", "rb") as f:
+            encrypted_score = f.read()  # Lire le fichier chiffré
+        with open("key.key", "rb") as f:
+            key = f.read()  # Lire la clé
+        cipher_suite = Fernet(key)
+        decrypted_score = cipher_suite.decrypt(encrypted_score).decode()  # Décrypter le score
+        return int(decrypted_score)  # Convertir le score en entier
     except FileNotFoundError:
-        return 0
+        return 0  # Retourner 0 si le fichier n'existe pas encore
 
-# Fonction pour sauvegarder le meilleur score
-def save_best_score(score):
-    with open("best_score.txt", "w") as f:
-        f.write(str(score))
-
-# Variable pour le meilleur score
-best_score = load_best_score()
-
+# Fonction pour dessiner le serpent
 def draw_snake(snake, score):
     # Définir la couleur du serpent en fonction du score
     if score >= 25:
@@ -54,18 +67,22 @@ def draw_snake(snake, score):
              SQUARE_SIZE - SPACING * 2, SQUARE_SIZE - SPACING * 2)
         )
 
+# Fonction pour dessiner la nourriture
 def draw_food(foods):
     for food in foods:
         pygame.draw.rect(win, (255, 0, 0), (*food, SQUARE_SIZE, SQUARE_SIZE))
 
+# Fonction pour dessiner le score actuel
 def draw_score(score):
     text = font.render(f"Score: {score}", True, (255, 255, 255))
     win.blit(text, (WINDOW_SIZE - text.get_width() - 10, 10))
 
+# Fonction pour dessiner le meilleur score
 def draw_best_score():
     best_score_text = font.render(f"Meilleur Score: {best_score}", True, (255, 255, 255))
     win.blit(best_score_text, (WINDOW_SIZE - best_score_text.get_width() - 10, 40))
 
+# Fonction pour dessiner le menu "Game Over"
 def draw_game_over_menu(score):
     win.fill((0, 0, 0))
     over_text = big_font.render("Game Over", True, (255, 0, 0))
@@ -79,6 +96,7 @@ def draw_game_over_menu(score):
     win.blit(quit_text, ((WINDOW_SIZE - quit_text.get_width()) // 2, 300))
     pygame.display.update()
 
+# Fonction pour dessiner le menu de sélection des touches
 def draw_control_menu():
     win.fill((0, 0, 0))
     title = big_font.render("Choisis tes touches", True, (255, 255, 255))
@@ -91,6 +109,7 @@ def draw_control_menu():
     win.blit(opt3, ((WINDOW_SIZE - opt3.get_width()) // 2, 230))
     pygame.display.update()
 
+# Fonction pour sélectionner les touches
 def select_controls():
     while True:
         draw_control_menu()
@@ -106,16 +125,15 @@ def select_controls():
         elif keys[pygame.K_3]:
             return controls_presets["wasd"]
 
+# Fonction pour générer la nourriture
 def spawn_foods(snake, count):
     foods = []
     while len(foods) < count:
-        # Générer des positions possibles en excluant les zones de score et de crédit
         pos = [
             random.randint(0, WINDOW_SIZE // SQUARE_SIZE - 1) * SQUARE_SIZE,
             random.randint(0, WINDOW_SIZE // SQUARE_SIZE - 1) * SQUARE_SIZE
         ]
         
-        # Empêcher les positions dans les zones de score et de crédits
         while (pos[1] < 60) or (pos[1] > WINDOW_SIZE - 30):
             pos = [
                 random.randint(0, WINDOW_SIZE // SQUARE_SIZE - 1) * SQUARE_SIZE,
@@ -126,19 +144,21 @@ def spawn_foods(snake, count):
             foods.append(pos)
     return foods
 
+# Fonction pour dessiner les crédits
 def draw_credits():
     credit_text = font.render("Speed Group © 2025", True, (200, 200, 200))
-    win.blit(credit_text, ((WINDOW_SIZE - credit_text.get_width()) // 2, WINDOW_SIZE - 30))  # En bas, centré
+    win.blit(credit_text, ((WINDOW_SIZE - credit_text.get_width()) // 2, WINDOW_SIZE - 30))
 
+# Fonction pour exécuter le jeu
 def run_game(controls):
     global best_score
-    speed = 6  # Vitesse réduite ici
+    speed = 6
     snake = [[100, 100]]
     direction = [SQUARE_SIZE, 0]
     next_direction = direction.copy()
     score = 0
 
-    food_count = 3  # On veut toujours 3 blocs de nourriture
+    food_count = 3  # Toujours 3 blocs de nourriture
     foods = spawn_foods(snake, food_count)
 
     running = True
@@ -146,7 +166,7 @@ def run_game(controls):
         clock.tick(speed)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                save_best_score(best_score)  # Sauvegarder le meilleur score avant de quitter
+                save_best_score_encrypted(best_score)  # Sauvegarder le score chiffré
                 pygame.quit()
                 sys.exit()
             if event.type == pygame.KEYDOWN:
@@ -169,7 +189,6 @@ def run_game(controls):
         if new_head in foods:
             score += 1
             foods.remove(new_head)
-            # Assurer qu'il y a toujours 3 blocs de nourriture
             foods += spawn_foods(snake, 1)  # Ajouter un bloc de nourriture supplémentaire
             if len(foods) > 3:
                 foods = foods[:3]  # Si on a plus de 3, on garde que les 3 premiers
@@ -185,15 +204,15 @@ def run_game(controls):
         draw_snake(snake, score)
         draw_food(foods)
         draw_score(score)
-        draw_best_score()  # Affiche le meilleur score en dessous du score actuel
-        draw_credits()  # Affiche les crédits en bas de la fenêtre
+        draw_best_score()
+        draw_credits()
         pygame.display.update()
 
     while True:
         draw_game_over_menu(score)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                save_best_score(best_score)  # Sauvegarder avant de quitter
+                save_best_score_encrypted(best_score)
                 pygame.quit()
                 sys.exit()
         keys = pygame.key.get_pressed()
@@ -201,9 +220,12 @@ def run_game(controls):
             run_game(controls)
             return
         elif keys[pygame.K_q]:
-            save_best_score(best_score)  # Sauvegarder avant de quitter
+            save_best_score_encrypted(best_score)
             pygame.quit()
             sys.exit()
+
+# Charger le meilleur score au démarrage
+best_score = load_best_score_encrypted()
 
 # Lancement du jeu
 controls = select_controls()
