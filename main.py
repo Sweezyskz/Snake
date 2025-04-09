@@ -146,6 +146,7 @@ def save_best_score(best_score):
         print(f"Erreur lors de la sauvegarde du meilleur score: {e}")
 
 
+
 # Fonction pour charger le meilleur score (décrypté)
 def load_best_score():
     if not os.path.exists("best_score.txt"):
